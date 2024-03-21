@@ -21,11 +21,16 @@ def one_word(password):
       return True, guesses
   return False, guesses
 
-def two_words(password):
+def two_word(password):
   words = get_dictionary()
   guesses = 0
   for w in words:
-    guesses += 1
+    guesses += 2
     if (w == password):
       return True, guesses
   return False, guesses
+
+get_dictionary()
+for words in one_word():
+  for item in two_word(words):
+    print(words + item)
