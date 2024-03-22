@@ -2,6 +2,14 @@
 #   A program creates a window on your screen using Tkinter.
 import tkinter as tk
 
+def test_my_button():
+    print("I got here!")
+    if (ent_username.get() == "username" and ent_password.get() == "pass"):
+        frame_auth.tkraise()
+    else:
+        fail_label = tk.Label(frame_login, text="Invalid")
+        fail_label.pack()
+
 # main window
 root = tk.Tk()
 root.wm_geometry("200x200")
@@ -10,8 +18,8 @@ root.wm_geometry("200x200")
 frame_login = tk.Frame(root)
 frame_login.grid()
 
-tk.Label(frame_login,text="Password:",font="Courier")
-frame_login.grid()
+frame_auth = tk.Frame(root)
+frame_auth.grid(row=0, column=0, sticky="news")
 
 lbl_username = tk.Label(frame_login, text='Username:')
 lbl_username.pack()
@@ -25,4 +33,8 @@ lbl_password.pack()
 ent_password = tk.Entry(frame_login, bd=3)
 ent_password.pack(pady=5)
 
+btn_login = tk.Button(frame_login, text='Login', command=test_my_button)
+btn_login.pack()
+
+frame_login.tkraise()
 root.mainloop()
